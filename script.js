@@ -81,18 +81,23 @@ c.remove();
 
 setInterval(confetti,400);
 const photos=[
-"photos/1.jpg",
-"photos/2.jpg",
-"photos/3.jpg",
-"photos/4.jpg",
-"photos/5.jpg",
-"photos/6.jpg",
-"photos/7.jpg",
-"photos/8.jpg",
-"photos/9.jpg",
-"photos/10.jpg",
-"photos/11.jpg",
-"photos/12.jpg"
+"1.jpg",
+"2.jpg",
+"3.jpg",
+"4.jpg",
+"5.jpg",
+"6.jpg",
+"7.jpg",
+"8.jpg",
+"9.jpg",
+"file_000000008bc071f5a828a2012647a923",
+"11.jpg",
+"12.jpg",
+"13.jpg",
+"file_0000000003447207886866ec4a13f04b",
+"15.jpg",
+"16.jpg",
+];
 ];
 
 let current=0;
