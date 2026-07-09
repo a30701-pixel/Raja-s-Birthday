@@ -51,3 +51,32 @@ for(let i=0;i<120;i++){
     document.getElementById("stars").appendChild(star);
 
 }
+function confetti(){
+
+const c=document.createElement("div");
+
+c.innerHTML="🎊";
+
+c.style.position="fixed";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.top="-20px";
+
+c.style.fontSize="30px";
+
+c.style.transition="4s linear";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+c.style.top="110vh";
+},50);
+
+setTimeout(()=>{
+c.remove();
+},4500);
+
+}
+
+setInterval(confetti,400);
