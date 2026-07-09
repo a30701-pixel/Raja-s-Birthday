@@ -45,3 +45,21 @@ button{
 #main{
     padding:40px 20px;
 }
+#main{
+    display:none;
+    opacity:0;
+    transition:1.5s;
+}
+
+.welcome{
+    transition:0.8s;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+button:hover{
+    transform:scale(1.05);
+    transition:0.4s;
+}
