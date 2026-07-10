@@ -1,21 +1,22 @@
 function startWebsite() {
-  const welcome = document.querySelector(".welcome");
-  const main = document.getElementById("main");
+    const welcome = document.querySelector(".welcome");
+    const main = document.getElementById("main");
 
-  welcome.style.opacity = "0";
-
-  setTimeout(() => {
-    welcome.style.display = "none";
-    main.style.display = "block";
-    main.style.opacity = "0";
+    welcome.style.opacity = "0";
 
     setTimeout(() => {
-      main.style.transition = "opacity 1.5s";
-      main.style.opacity = "1";
-    }, 100);
+        welcome.style.display = "none";
+        main.style.display = "block";
 
-  }, 800);
+        setTimeout(() => {
+            main.style.opacity = "1";
+        }, 100);
+
+    }, 800);
 }
+
+/* ❤️ Floating Hearts */
+
 function createHeart(){
 
     const heart=document.createElement("div");
@@ -33,9 +34,13 @@ function createHeart(){
     setTimeout(()=>{
         heart.remove();
     },6000);
+
 }
 
 setInterval(createHeart,300);
+
+/* ✨ Stars */
+
 for(let i=0;i<120;i++){
 
     const star=document.createElement("div");
@@ -51,35 +56,41 @@ for(let i=0;i<120;i++){
     document.getElementById("stars").appendChild(star);
 
 }
+
+/* 🎊 Confetti */
+
 function confetti(){
 
-const c=document.createElement("div");
+    const c=document.createElement("div");
 
-c.innerHTML="🎊";
+    c.innerHTML="🎊";
 
-c.style.position="fixed";
+    c.style.position="fixed";
 
-c.style.left=Math.random()*100+"vw";
+    c.style.left=Math.random()*100+"vw";
 
-c.style.top="-20px";
+    c.style.top="-30px";
 
-c.style.fontSize="30px";
+    c.style.fontSize="28px";
 
-c.style.transition="4s linear";
+    c.style.transition="4s linear";
 
-document.body.appendChild(c);
+    document.body.appendChild(c);
 
-setTimeout(()=>{
-c.style.top="110vh";
-},50);
+    setTimeout(()=>{
+        c.style.top="110vh";
+    },50);
 
-setTimeout(()=>{
-c.remove();
-},4500);
+    setTimeout(()=>{
+        c.remove();
+    },4500);
 
 }
 
 setInterval(confetti,400);
+
+/* 📸 Slideshow */
+
 const photos=[
 "1.jpg",
 "2.jpg",
@@ -90,26 +101,29 @@ const photos=[
 "7.jpg",
 "8.jpg",
 "9.jpg",
-"file_000000008bc071f5a828a2012647a923",
+"file_000000008bc071f5a828a2012647a923.jpg",
 "11.jpg",
 "12.jpg",
 "13.jpg",
-"file_0000000003447207886866ec4a13f04b",
+"file_0000000003447207886866ec4a13f04b.jpg",
 "15.jpg",
-"16.jpg",
-];
+"16.jpg"
 ];
 
 let current=0;
 
 setInterval(()=>{
 
-current++;
+    current++;
 
-if(current>=photos.length){
-current=0;
-}
+    if(current>=photos.length){
+        current=0;
+    }
 
-document.getElementById("slide").src=photos[current];
+    const slide=document.getElementById("slide");
+
+    if(slide){
+        slide.src=photos[current];
+    }
 
 },3000);
