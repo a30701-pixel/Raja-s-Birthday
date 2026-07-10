@@ -91,3 +91,14 @@ setInterval(() => {
 
   document.getElementById("slide").src = photos[current];
 }, 3000);
+function showLetter(){
+
+    document.getElementById("hiddenLetter").style.display="block";
+
+    document.getElementById("heartBtn").style.display="none";
+
+    document.getElementById("hiddenLetter").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
