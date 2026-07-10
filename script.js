@@ -102,3 +102,10 @@ function showLetter(){
     });
 
 }
+function openGift(){
+
+    document.querySelector(".gift-box").innerHTML="💖";
+
+    document.getElementById("giftMessage").style.display="block";
+
+}
