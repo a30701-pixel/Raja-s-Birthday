@@ -109,10 +109,12 @@ function showLetter(){
 }
 function openGift(){
 
-    alert("Gift Opened ❤️");
-
     document.querySelector(".gift-box").innerHTML = "💖";
 
     document.getElementById("giftMessage").style.display = "block";
+
+    document.getElementById("giftMessage").scrollIntoView({
+        behavior:"smooth"
+    });
 
 }
