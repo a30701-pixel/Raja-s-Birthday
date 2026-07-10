@@ -104,8 +104,10 @@ function showLetter(){
 }
 function openGift(){
 
-    document.querySelector(".gift-box").innerHTML="💖";
+    alert("Gift Opened ❤️");
 
-    document.getElementById("giftMessage").style.display="block";
+    document.querySelector(".gift-box").innerHTML = "💖";
+
+    document.getElementById("giftMessage").style.display = "block";
 
 }
