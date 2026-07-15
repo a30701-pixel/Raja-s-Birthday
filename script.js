@@ -147,3 +147,12 @@ noBtn.style.left = x + "px";
 noBtn.style.top = y + "px";
 
 }
+let noCount = 0;
+
+function yesAnswer(){
+    ...
+}
+
+function noAnswer(event){
+    ...
+}
