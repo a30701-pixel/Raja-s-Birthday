@@ -119,3 +119,31 @@ function openGift(){
     });
 
 }
+function yesAnswer(){
+
+document.getElementById("proposalReply").innerHTML =
+"🥹❤️ Yaaay!! You made me the happiest person in the world! ❤️";
+
+document.getElementById("proposalReply").style.display = "block";
+
+document.getElementById("proposalVideo").style.display = "block";
+
+document.getElementById("proposalVideo").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function noAnswer(){
+
+const noBtn = event.target;
+
+const x = Math.random() * (window.innerWidth - 150);
+
+const y = Math.random() * (window.innerHeight - 80);
+
+noBtn.style.position = "fixed";
+noBtn.style.left = x + "px";
+noBtn.style.top = y + "px";
+
+}
