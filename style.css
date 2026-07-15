@@ -247,3 +247,10 @@ opacity:0;
     color:#ffd700;
     font-weight:bold;
 }
+#noBtn{
+    transition:.3s;
+}
+
+#yesBtn,#noBtn{
+    margin:10px;
+}
