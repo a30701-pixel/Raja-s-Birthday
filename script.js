@@ -1,4 +1,10 @@
 function startWebsite() {
+  const music = document.getElementById("bgMusic");
+
+if (music) {
+    music.volume = 0.5;
+    music.play().catch(() => {});
+}
   const welcome = document.querySelector(".welcome");
   const main = document.getElementById("main");
 
