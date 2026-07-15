@@ -213,3 +213,37 @@ opacity:0;
         transform:translateY(0);
     }
 }
+.proposal-section{
+    margin:80px auto;
+    text-align:center;
+}
+
+.proposal-section h1{
+    color:#ff4d6d;
+    margin-bottom:15px;
+}
+
+.proposal-section p{
+    font-size:20px;
+}
+
+.proposal-section button{
+    margin:15px;
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.proposal-section button:hover{
+    transform:scale(1.08);
+}
+
+#proposalReply{
+    margin-top:25px;
+    font-size:24px;
+    color:#ffd700;
+    font-weight:bold;
+}
