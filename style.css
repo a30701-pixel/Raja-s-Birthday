@@ -1,4 +1,4 @@
-body{
+yybody{
 margin:0;
 padding:0;
 font-family:Arial,sans-serif;
@@ -253,19 +253,4 @@ opacity:0;
 
 #yesBtn,#noBtn{
     margin:10px;
-}
-.proposal-section{
-...
-}
-
-#yesBtn,#noBtn{
-...
-}
-
-#noBtn{
-...
-}
-
-#proposalReply{
-...
 }
