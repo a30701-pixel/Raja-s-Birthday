@@ -505,3 +505,25 @@ opacity:1;
 text-shadow:0 0 25px #ffffff,0 0 40px #ff4d6d;
 }
 }
+#memoryBtn{
+margin:40px auto;
+padding:16px 35px;
+background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
+color:white;
+border:none;
+border-radius:40px;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,77,109,.5);
+transition:.3s;
+}
+
+#memoryBtn:hover{
+transform:scale(1.08);
+}
+
+#memorySection{
+margin-top:30px;
+animation:fadeIn 1.5s;
+}
