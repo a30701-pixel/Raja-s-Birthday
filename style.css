@@ -459,6 +459,24 @@ visibility:hidden;
 transition:opacity 3s ease;
 z-index:99999;
 }
+#endingScreen{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.98);
+backdrop-filter:blur(15px);
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+text-align:center;
+
+opacity:0;
+visibility:hidden;
+transition:opacity 3s ease;
+z-index:99999;
+}
 
 #endingScreen h1{
 margin:0;
@@ -475,7 +493,7 @@ margin-top:18px;
 font-size:clamp(18px,5vw,24px);
 color:#ffd700;
 width:90%;
-}
+    }
 
 @keyframes glow{
 from{
