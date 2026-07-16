@@ -252,3 +252,14 @@ ending.classList.add("hide");
 };
 
 }
+function showMemories(){
+
+document.getElementById("memorySection").style.display="block";
+
+document.getElementById("memoryBtn").style.display="none";
+
+document.getElementById("memorySection").scrollIntoView({
+behavior:"smooth"
+});
+
+}
