@@ -169,7 +169,8 @@ function yesAnswer() {
     "🥹❤️ Yaaay!! You made me the happiest person in the world! ❤️";
 
     document.getElementById("proposalVideo").style.display = "block";
-
+const video = document.querySelector("#proposalVideo video");
+video.load();
     document.getElementById("proposalVideo").scrollIntoView({
         behavior: "smooth"
     });
