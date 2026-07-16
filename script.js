@@ -228,3 +228,27 @@ fw.remove();
 }
 
 setInterval(createFirework,1500);
+/* ---------- Cinematic Ending ---------- */
+
+const proposalVideo = document.querySelector("#proposalVideo video");
+
+if(proposalVideo){
+
+proposalVideo.onended = function(){
+
+const ending = document.getElementById("endingScreen");
+
+ending.classList.add("show");
+
+/* ৮ সেকেন্ড পরে Fade Out */
+
+setTimeout(function(){
+
+ending.classList.remove("show");
+ending.classList.add("hide");
+
+},8000);
+
+};
+
+}
