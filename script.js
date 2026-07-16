@@ -232,26 +232,35 @@ setInterval(createFirework,1500);
 
 const proposalVideo = document.querySelector("#proposalVideo video");
 
-if(proposalVideo){
+if (proposalVideo) {
 
-proposalVideo.onended = function(){
+    proposalVideo.onended = function () {
 
-const ending = document.getElementById("endingScreen");
+        const ending = document.getElementById("endingScreen");
+        const finalMessage = document.getElementById("finalMessage");
 
-ending.classList.add("show");
+        // প্রথমে "Made with ❤️ by Ima"
+        ending.classList.add("show");
 
-/* ৮ সেকেন্ড পরে Fade Out */
+        // ৮ সেকেন্ড পরে ওটা মিলিয়ে যাবে
+        setTimeout(function () {
 
-setTimeout(function(){
+            ending.classList.remove("show");
+            ending.classList.add("hide");
 
-ending.classList.remove("show");
-ending.classList.add("hide");
+            // তারপর Final Message দেখাবে
+            setTimeout(function () {
 
-},8000);
+                finalMessage.classList.add("show");
 
-};
+            }, 2000);
+
+        }, 8000);
+
+    };
 
 }
+
 function showMemories(){
 
 document.getElementById("memorySection").style.display="block";
