@@ -342,3 +342,30 @@ text-shadow:0 0 25px #ff4d6d;
 }
 
     }
+.proposal-section h1{
+animation:heartbeat 1.3s infinite;
+}
+
+@keyframes heartbeat{
+
+0%{
+transform:scale(1);
+}
+
+25%{
+transform:scale(1.12);
+}
+
+40%{
+transform:scale(1);
+}
+
+60%{
+transform:scale(1.12);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
