@@ -1,4 +1,4 @@
-yybody{
+body{
 margin:0;
 padding:0;
 font-family:Arial,sans-serif;
@@ -42,10 +42,12 @@ transition:1.5s;
 h1{
 color:#ff4d6d;
 font-size:38px;
+text-shadow:0 0 15px #ff4d6d;
 }
 
 h2{
 color:#ffd700;
+text-shadow:0 0 10px gold;
 }
 
 p{
@@ -58,69 +60,90 @@ font-size:18px;
 button{
 padding:15px 35px;
 font-size:20px;
-background:#ff4d6d;
+background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
 border:none;
-border-radius:30px;
+border-radius:40px;
 color:white;
 cursor:pointer;
+transition:.4s;
+box-shadow:0 0 15px rgba(255,77,109,.5);
 }
 
 button:hover{
-transform:scale(1.05);
-transition:.3s;
+transform:scale(1.08);
+}
+/* Moon */
+
+.moon{
+position:fixed;
+top:30px;
+right:30px;
+width:90px;
+height:90px;
+border-radius:50%;
+background:#fffde7;
+box-shadow:0 0 20px #fff,0 0 50px #fff,0 0 80px #fff;
+z-index:1;
 }
 
-.birthday-box{
-margin-top:20px;
+/* Shooting Star */
+
+.shooting-star{
+position:fixed;
+top:-100px;
+left:-100px;
+width:3px;
+height:120px;
+background:linear-gradient(white,transparent);
+transform:rotate(45deg);
+animation:shoot 6s linear infinite;
+z-index:1;
+opacity:.9;
 }
 
-.cake{
-font-size:90px;
-animation:cakeJump 2s infinite;
+@keyframes shoot{
+
+0%{
+top:-100px;
+left:-100px;
+opacity:1;
 }
 
-.balloons{
-font-size:45px;
-animation:balloonMove 4s infinite;
+100%{
+top:110%;
+left:110%;
+opacity:0;
 }
 
-@keyframes cakeJump{
-0%{transform:translateY(0);}
-50%{transform:translateY(-18px);}
-100%{transform:translateY(0);}
 }
 
-@keyframes balloonMove{
-0%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-100%{transform:translateY(0);}
-}
-
-.slideshow{
-margin:30px auto;
-width:90%;
-max-width:420px;
-}
-
-.slideshow img{
-width:100%;
-border-radius:20px;
-box-shadow:0 0 20px rgba(255,255,255,.3);
-}
+/* Stars */
 
 .star{
 position:absolute;
 width:4px;
 height:4px;
-background:white;
+background:#fff;
 border-radius:50%;
-box-shadow:0 0 10px white,0 0 20px white;
+box-shadow:0 0 8px white,0 0 15px white,0 0 25px white;
 animation:twinkle 2s infinite alternate;
 }
+
 @keyframes twinkle{
-from{opacity:.2;transform:scale(.8);}
-to{opacity:1;transform:scale(1.6);}
+
+from{
+opacity:.3;
+transform:scale(.8);
 }
+
+to{
+opacity:1;
+transform:scale(1.8);
+}
+
+}
+
+/* Hearts */
 
 .heart{
 position:absolute;
@@ -130,127 +153,192 @@ animation:floatUp linear forwards;
 }
 
 @keyframes floatUp{
+
 0%{
 transform:translateY(0);
 opacity:1;
 }
+
 100%{
 transform:translateY(-110vh);
 opacity:0;
 }
+
 }
+
+/* Cake */
+
+.cake{
+font-size:90px;
+animation:cakeJump 2s infinite;
+}
+
+@keyframes cakeJump{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+
+}
+
+/* Balloons */
+
+.balloons{
+font-size:45px;
+animation:balloonMove 4s infinite;
+}
+
+@keyframes balloonMove{
+
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
+
+}
+
+/* Slideshow */
+
+.slideshow{
+width:90%;
+max-width:420px;
+margin:30px auto;
+}
+
+.slideshow img{
+width:100%;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.4);
+}
+
+/* Heart Button */
+
 #heartBtn{
-    margin:40px auto 15px;
-    padding:16px 32px;
-    background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
-    color:white;
-    border:none;
-    border-radius:50px;
-    font-size:20px;
-    font-weight:bold;
-    cursor:pointer;
-    box-shadow:0 0 20px rgba(255,77,109,.5);
-    transition:.4s;
+margin:40px auto 20px;
+padding:16px 34px;
+font-size:20px;
+font-weight:bold;
+background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
+border:none;
+border-radius:50px;
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px rgba(255,77,109,.6);
+transition:.4s;
 }
 
 #heartBtn:hover{
-    transform:scale(1.05);
-}
+transform:scale(1.08);
+    }
+/* Bengali Letter */
 
 #hiddenLetter{
-    display:none;
-    width:90%;
-    max-width:700px;
-    margin:40px auto;
-    background:rgba(255,255,255,.08);
-    padding:25px;
-    border-radius:20px;
-    line-height:2;
-    animation:fadeIn 1.5s;
+display:none;
+width:90%;
+max-width:750px;
+margin:40px auto;
+padding:25px;
+background:rgba(255,255,255,.08);
+border-radius:20px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 25px rgba(255,255,255,.15);
+line-height:2;
+animation:fadeIn 1.5s;
 }
 
 @keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+from{
+opacity:0;
+transform:translateY(25px);
 }
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Video */
+
+video{
+width:90%;
+max-width:420px;
+margin:30px auto;
+display:block;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.35);
+}
+
+/* Gift */
+
 .gift-section{
-    margin:60px auto;
-    text-align:center;
+margin:70px auto;
 }
 
 .gift-box{
-    font-size:90px;
-    cursor:pointer;
-    transition:0.5s;
-    display:inline-block;
+font-size:90px;
+cursor:pointer;
+display:inline-block;
+transition:.5s;
 }
 
 .gift-box:hover{
-    transform:scale(1.15) rotate(10deg);
+transform:scale(1.15) rotate(10deg);
 }
 
 #giftMessage{
-    margin-top:25px;
-    font-size:20px;
-    line-height:1.8;
-    color:#fff;
-    animation:fadeIn 1.5s;
+display:none;
+margin-top:20px;
+font-size:20px;
+animation:fadeIn 1.5s;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
+/* Proposal */
+
 .proposal-section{
-    margin:80px auto;
-    text-align:center;
+margin:80px auto;
+padding:20px;
 }
 
-.proposal-section h1{
-    color:#ff4d6d;
-    margin-bottom:15px;
+#yesBtn{
+background:#28a745;
 }
 
-.proposal-section p{
-    font-size:20px;
-}
-
-.proposal-section button{
-    margin:15px;
-    padding:15px 35px;
-    font-size:20px;
-    border:none;
-    border-radius:40px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.proposal-section button:hover{
-    transform:scale(1.08);
-}
-
-#proposalReply{
-    margin-top:25px;
-    font-size:24px;
-    color:#ffd700;
-    font-weight:bold;
-}
 #noBtn{
-    transition:.3s;
+background:#ff4d6d;
+transition:.3s;
 }
 
 #yesBtn,#noBtn{
-    margin:10px;
+margin:12px;
 }
+
+#proposalReply{
+display:none;
+margin-top:25px;
+font-size:24px;
+font-weight:bold;
+color:#ffd700;
+animation:fadeIn 1s;
+}
+
+/* Footer */
+
+.footer{
+margin:80px 0 40px;
+font-size:20px;
+color:#ccc;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+from{
+opacity:.6;
+text-shadow:0 0 10px #fff;
+}
+
+to{
+opacity:1;
+text-shadow:0 0 25px #ff4d6d;
+}
+
+    }
