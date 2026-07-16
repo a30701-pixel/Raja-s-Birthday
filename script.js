@@ -15,6 +15,10 @@ function startWebsite() {
     setTimeout(() => {
         welcome.style.display = "none";
         main.style.display = "block";
+        window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
         main.style.opacity = "0";
 
         setTimeout(() => {
