@@ -206,3 +206,23 @@ function noAnswer(event) {
     }
 
 }
+function createFirework(){
+
+const fw=document.createElement("div");
+
+fw.className="firework";
+
+fw.innerHTML="🎆";
+
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*100+"vh";
+
+document.getElementById("fireworks").appendChild(fw);
+
+setTimeout(()=>{
+fw.remove();
+},1500);
+
+}
+
+setInterval(createFirework,1500);
