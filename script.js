@@ -1,104 +1,116 @@
-function startWebsite() {
+/* =========================
+   HAPPY BIRTHDAY RAJA ❤️
+   FINAL MOVIE EDITION
+========================= */
 
-    const music = document.getElementById("bgMusic");
+// Background Music + Start Website
 
-    if (music) {
-        music.volume = 0.5;
-        music.play().catch(() => {});
-    }
+function startWebsite(){
 
-    const welcome = document.querySelector(".welcome");
-    const main = document.getElementById("main");
+const music = document.getElementById("bgMusic");
 
-    welcome.style.opacity = "0";
+if(music){
+music.volume = 0.5;
+music.play().catch(()=>{});
+}
 
-    setTimeout(() => {
-        welcome.style.display = "none";
-        main.style.display = "block";
-        window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+const welcome = document.querySelector(".welcome");
+const main = document.getElementById("main");
+
+welcome.style.opacity = "0";
+
+setTimeout(()=>{
+
+welcome.style.display = "none";
+
+main.style.display = "block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
 });
-        main.style.opacity = "0";
 
-        setTimeout(() => {
-            main.style.transition = "opacity 1.5s";
-            main.style.opacity = "1";
-        }, 100);
+setTimeout(()=>{
+main.style.opacity="1";
+},100);
 
-    }, 800);
+},800);
 
 }
 
-// Floating Hearts
+/* =========================
+   Floating Hearts
+========================= */
 
-function createHeart() {
+function createHeart(){
 
-    const heart = document.createElement("div");
+const heart=document.createElement("div");
 
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
+heart.className="heart";
+heart.innerHTML="❤️";
 
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+heart.style.left=Math.random()*100+"vw";
 
-    document.getElementById("hearts").appendChild(heart);
+heart.style.animationDuration=
+(3+Math.random()*3)+"s";
 
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
+document.getElementById("hearts").appendChild(heart);
 
-}
-
-setInterval(createHeart, 300);
-
-// Stars
-
-for (let i = 0; i < 120; i++) {
-
-    const star = document.createElement("div");
-
-    star.className = "star";
-
-    star.style.left = Math.random() * 100 + "vw";
-    star.style.top = Math.random() * 100 + "vh";
-    star.style.animationDelay = Math.random() * 2 + "s";
-
-    document.getElementById("stars").appendChild(star);
+setTimeout(()=>{
+heart.remove();
+},6000);
 
 }
 
-// Confetti
+setInterval(createHeart,300);
 
-function confetti() {
+/* =========================
+   Stars
+========================= */
 
-    const c = document.createElement("div");
+for(let i=0;i<120;i++){
 
-    c.innerHTML = "🎊";
+const star=document.createElement("div");
 
-    c.style.position = "fixed";
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.top = "-20px";
-    c.style.fontSize = "30px";
-    c.style.transition = "4s linear";
+star.className="star";
 
-    document.body.appendChild(c);
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*2+"s";
 
-    setTimeout(() => {
-        c.style.top = "110vh";
-    }, 50);
-
-    setTimeout(() => {
-        c.remove();
-    }, 4500);
+document.getElementById("stars").appendChild(star);
 
 }
 
-setInterval(confetti, 400);
+/* =========================
+   Fireworks
+========================= */
 
-// Slideshow
+function createFirework(){
 
-const photos = [
+const fw=document.createElement("div");
+
+fw.className="firework";
+fw.innerHTML="🎆";
+
+fw.style.left=Math.random()*100+"vw";
+fw.style.top=Math.random()*100+"vh";
+
+document.getElementById("fireworks").appendChild(fw);
+
+setTimeout(()=>{
+fw.remove();
+},1500);
+
+}
+
+setInterval(createFirework,1500);
+
+/* =========================
+   Slideshow
+========================= */
+
+const photos=[
 
 "1.jpg.png",
 "2.jpg.png",
@@ -119,156 +131,244 @@ const photos = [
 
 ];
 
-let current = 0;
+let current=0;
 
-setInterval(() => {
+setInterval(()=>{
 
-    current++;
+current++;
 
-    if (current >= photos.length) {
-        current = 0;
-    }
-
-    document.getElementById("slide").src = photos[current];
-
-}, 3000);
-
-// Bengali Letter
-
-function showLetter() {
-
-    document.getElementById("hiddenLetter").style.display = "block";
-
-    document.getElementById("heartBtn").style.display = "none";
-
-    document.getElementById("hiddenLetter").scrollIntoView({
-        behavior: "smooth"
-    });
-
+if(current>=photos.length){
+current=0;
 }
 
-// Gift
+document.getElementById("slide").src=photos[current];
 
-function openGift() {
+const memory=document.getElementById("memorySlide");
 
-    document.querySelector(".gift-box").innerHTML = "💖";
-
-    document.getElementById("giftMessage").style.display = "block";
-
-    document.getElementById("giftMessage").scrollIntoView({
-        behavior: "smooth"
-    });
-
+if(memory){
+memory.src=photos[current];
 }
 
-// Proposal
-
-let noCount = 0;
-
-function yesAnswer() {
-
-    document.getElementById("proposalReply").style.display = "block";
-
-    document.getElementById("proposalReply").innerHTML =
-    "🥹❤️ Yaaay!! You made me the happiest person in the world! ❤️";
-
-    document.getElementById("proposalVideo").style.display = "block";
-    document.getElementById("rings").style.display = "block";
-    document.getElementById("ringMessage").style.display = "block";
-const video = document.querySelector("#proposalVideo video");
-video.load();
-    document.getElementById("proposalVideo").scrollIntoView({
-        behavior: "smooth"
-    });
-
-}
-
-function noAnswer(event) {
-
-    noCount++;
-
-    const noBtn = document.getElementById("noBtn");
-
-    const x = Math.random() * (window.innerWidth - 120);
-
-    const y = Math.random() * (window.innerHeight - 70);
-
-    noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-
-    if (noCount >= 5) {
-
-        document.getElementById("proposalReply").style.display = "block";
-
-        document.getElementById("proposalReply").innerHTML =
-        "😏 Okay accepted... But my heart will always wait for you. ❤️";
-
-        noBtn.style.display = "none";
-    }
-
-}
-function createFirework(){
-
-const fw=document.createElement("div");
-
-fw.className="firework";
-
-fw.innerHTML="🎆";
-
-fw.style.left=Math.random()*100+"vw";
-fw.style.top=Math.random()*100+"vh";
-
-document.getElementById("fireworks").appendChild(fw);
-
-setTimeout(()=>{
-fw.remove();
-},1500);
-
-}
-
-setInterval(createFirework,1500);
-/* ---------- Cinematic Ending ---------- */
-
-const proposalVideo = document.querySelector("#proposalVideo video");
-
-if (proposalVideo) {
-
-    proposalVideo.onended = function () {
-
-        const ending = document.getElementById("endingScreen");
-        const finalMessage = document.getElementById("finalMessage");
-
-        // প্রথমে "Made with ❤️ by Ima"
-        ending.classList.add("show");
-
-        // ৮ সেকেন্ড পরে ওটা মিলিয়ে যাবে
-        setTimeout(function () {
-
-            ending.classList.remove("show");
-            ending.classList.add("hide");
-
-            // তারপর Final Message দেখাবে
-            setTimeout(function () {
-
-                finalMessage.classList.add("show");
-
-            }, 2000);
-
-        }, 8000);
-
-    };
-
-}
+},3000);
+/* =========================
+   Our Memories
+========================= */
 
 function showMemories(){
 
-document.getElementById("memorySection").style.display="block";
+const section=document.getElementById("memorySection");
 
-document.getElementById("memoryBtn").style.display="none";
+if(section){
 
-document.getElementById("memorySection").scrollIntoView({
+section.style.display="block";
+
+section.scrollIntoView({
 behavior:"smooth"
 });
 
 }
+
+}
+
+/* =========================
+   Bengali Letter
+========================= */
+
+function showLetter(){
+
+document.getElementById("hiddenLetter").style.display="block";
+
+document.getElementById("heartBtn").style.display="none";
+
+document.getElementById("hiddenLetter").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+/* =========================
+   Gift
+========================= */
+
+function openGift(){
+
+document.querySelector(".gift-box").innerHTML="💖";
+
+document.getElementById("giftMessage").style.display="block";
+
+document.getElementById("giftMessage").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+/* =========================
+   Proposal
+========================= */
+
+let noCount=0;
+
+function yesAnswer(){
+
+document.getElementById("proposalReply").style.display="block";
+
+document.getElementById("proposalReply").innerHTML=
+"🥹❤️ Yaaay!! You made me the happiest person in the world! ❤️";
+
+document.getElementById("proposalVideo").style.display="block";
+
+document.getElementById("rings").style.display="block";
+
+document.getElementById("ringMessage").style.display="block";
+
+const video=document.querySelector("#proposalVideo video");
+
+if(video){
+video.load();
+}
+
+document.getElementById("proposalVideo").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function noAnswer(){
+
+noCount++;
+
+const noBtn=document.getElementById("noBtn");
+
+const x=Math.random()*(window.innerWidth-120);
+
+const y=Math.random()*(window.innerHeight-80);
+
+noBtn.style.position="fixed";
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
+
+if(noCount>=5){
+
+document.getElementById("proposalReply").style.display="block";
+
+document.getElementById("proposalReply").innerHTML=
+"😏 Okay... I'll keep waiting for you forever ❤️";
+
+noBtn.style.display="none";
+
+}
+
+}
+/* =========================
+   Cinematic Ending
+========================= */
+
+const proposalVideo = document.querySelector("#proposalVideo video");
+
+if(proposalVideo){
+
+proposalVideo.onended = function(){
+
+// Show Ending Screen
+const ending = document.getElementById("endingScreen");
+
+ending.classList.add("show");
+
+// Fade Out Music
+const music = document.getElementById("bgMusic");
+
+if(music){
+
+let fade = setInterval(function(){
+
+if(music.volume > 0.05){
+
+music.volume -= 0.05;
+
+}else{
+
+music.volume = 0;
+
+music.pause();
+
+clearInterval(fade);
+
+}
+
+},300);
+
+}
+
+// Show Final Message after 8 seconds
+
+setTimeout(function(){
+
+ending.classList.remove("show");
+
+ending.classList.add("hide");
+
+const finalMessage = document.getElementById("finalMessage");
+
+if(finalMessage){
+
+finalMessage.style.display = "block";
+
+finalMessage.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+},8000);
+
+};
+
+}
+
+/* =========================
+   Replay Button (Optional)
+========================= */
+
+function replayStory(){
+
+location.reload();
+
+}
+
+/* =========================
+   Prevent Multiple Clicks
+========================= */
+
+const yesBtn = document.getElementById("yesBtn");
+
+if(yesBtn){
+
+yesBtn.addEventListener("click",function(){
+
+yesBtn.disabled = true;
+
+setTimeout(function(){
+
+yesBtn.disabled = false;
+
+},3000);
+
+});
+
+}
+
+/* =========================
+   Preload Images
+========================= */
+
+photos.forEach(function(src){
+
+const img = new Image();
+
+img.src = src;
+
+});
+
+/* =========================
+   End of Script
+========================= */
