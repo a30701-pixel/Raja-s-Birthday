@@ -1,5 +1,5 @@
 /* =========================
-   RESET
+RESET
 ========================= */
 
 *{
@@ -8,24 +8,26 @@ padding:0;
 box-sizing:border-box;
 }
 
-body{
+html{
+scroll-behavior:smooth;
+}
 
+body{
 font-family:Arial,sans-serif;
 background:#000;
 color:#fff;
 overflow-x:hidden;
 text-align:center;
-
 }
 
 /* =========================
-   Background Effects
+Background Layers
 ========================= */
 
 #stars,
 #hearts,
-#fireworks,
-#rosePetals{
+#rosePetals,
+#fireworks{
 
 position:fixed;
 top:0;
@@ -34,7 +36,6 @@ width:100%;
 height:100%;
 
 pointer-events:none;
-
 overflow:hidden;
 
 z-index:0;
@@ -42,7 +43,7 @@ z-index:0;
 }
 
 /* =========================
-   Moon
+Moon
 ========================= */
 
 .moon{
@@ -60,17 +61,16 @@ border-radius:50%;
 background:#fffde7;
 
 box-shadow:
-
-0 0 20px white,
-0 0 45px white,
-0 0 70px white;
+0 0 20px #fff,
+0 0 45px #fff,
+0 0 80px #fff;
 
 z-index:1;
 
 }
 
 /* =========================
-   Shooting Star
+Shooting Star
 ========================= */
 
 .shooting-star{
@@ -81,10 +81,9 @@ top:-150px;
 left:-150px;
 
 width:3px;
-height:140px;
+height:150px;
 
-background:
-linear-gradient(white,transparent);
+background:linear-gradient(white,transparent);
 
 transform:rotate(45deg);
 
@@ -99,23 +98,19 @@ z-index:1;
 @keyframes shoot{
 
 0%{
-
 top:-150px;
 left:-150px;
-
 }
 
 100%{
-
 top:120%;
 left:120%;
-
 }
 
 }
 
 /* =========================
-   Stars
+Stars
 ========================= */
 
 .star{
@@ -125,12 +120,11 @@ position:absolute;
 width:4px;
 height:4px;
 
-background:white;
-
 border-radius:50%;
 
-box-shadow:
+background:white;
 
+box-shadow:
 0 0 8px white,
 0 0 20px white;
 
@@ -141,23 +135,19 @@ animation:twinkle 2s infinite alternate;
 @keyframes twinkle{
 
 from{
-
-opacity:.2;
+opacity:.3;
 transform:scale(.8);
-
 }
 
 to{
-
 opacity:1;
 transform:scale(1.8);
-
 }
 
 }
 
 /* =========================
-   Hearts
+Floating Hearts
 ========================= */
 
 .heart{
@@ -168,32 +158,26 @@ bottom:-60px;
 
 font-size:24px;
 
-animation:floatUp linear forwards;
+animation:heartFloat linear forwards;
 
 }
 
-@keyframes floatUp{
+@keyframes heartFloat{
 
 0%{
-
 transform:translateY(0);
-
 opacity:1;
-
 }
 
 100%{
-
-transform:translateY(-110vh);
-
+transform:translateY(-120vh);
 opacity:0;
-
 }
 
 }
 
 /* =========================
-   Rose Petals
+Rose Petals
 ========================= */
 
 .petal{
@@ -202,13 +186,13 @@ position:absolute;
 
 top:-60px;
 
-font-size:22px;
+font-size:24px;
 
-animation:fallRose linear forwards;
+animation:roseFall linear forwards;
 
 }
 
-@keyframes fallRose{
+@keyframes roseFall{
 
 0%{
 
@@ -223,7 +207,7 @@ opacity:1;
 100%{
 
 transform:
-translateY(110vh)
+translateY(120vh)
 rotate(360deg);
 
 opacity:0;
@@ -232,10 +216,12 @@ opacity:0;
 
 }
 /* =========================
-   Welcome Screen
+Welcome Screen
 ========================= */
 
 .welcome{
+position:relative;
+z-index:2;
 height:100vh;
 display:flex;
 flex-direction:column;
@@ -243,8 +229,6 @@ justify-content:center;
 align-items:center;
 padding:20px;
 transition:1s;
-position:relative;
-z-index:2;
 }
 
 .welcome h1{
@@ -255,28 +239,28 @@ margin-bottom:20px;
 }
 
 .welcome p{
-max-width:700px;
 font-size:20px;
 line-height:1.8;
+max-width:700px;
 margin-bottom:30px;
 color:#eee;
 }
 
 /* =========================
-   Main
+Main
 ========================= */
 
 #main{
 display:none;
 opacity:0;
-padding:30px 15px 80px;
-transition:opacity 1.5s;
 position:relative;
 z-index:2;
+padding:30px 15px 100px;
+transition:opacity 1.5s;
 }
 
 /* =========================
-   Headings
+Headings
 ========================= */
 
 h1{
@@ -290,149 +274,268 @@ color:#ffd700;
 text-shadow:0 0 12px gold;
 }
 
+h3{
+margin:10px 0;
+color:white;
+font-weight:normal;
+}
+
 p{
 width:90%;
-max-width:750px;
+max-width:760px;
 margin:auto;
 line-height:1.9;
 font-size:18px;
 }
 
 /* =========================
-   Buttons
+Buttons
 ========================= */
 
 button{
+
 padding:15px 35px;
+margin:18px auto;
+
 font-size:20px;
 font-weight:bold;
+
+color:white;
+
 border:none;
 border-radius:40px;
+
 cursor:pointer;
-color:white;
+
 background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
+
 box-shadow:0 0 18px rgba(255,77,109,.5);
+
 transition:.3s;
+
 }
 
 button:hover{
+
 transform:scale(1.08);
+
 }
 
 /* =========================
-   Birthday Box
+Birthday
 ========================= */
 
 .birthday-box{
+
 margin-top:20px;
+
 }
 
 .cake{
+
 font-size:90px;
+
 animation:cakeJump 2s infinite;
+
 }
 
 @keyframes cakeJump{
+
 0%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+50%{transform:translateY(-18px);}
 100%{transform:translateY(0);}
+
 }
 
 .balloons{
+
 font-size:45px;
+
 animation:balloonMove 4s infinite;
+
 }
 
 @keyframes balloonMove{
+
 0%{transform:translateY(0);}
 50%{transform:translateY(-15px);}
 100%{transform:translateY(0);}
+
 }
 
 /* =========================
-   Slideshow
+Slideshow
 ========================= */
 
 .slideshow{
+
 width:90%;
 max-width:420px;
+
 margin:35px auto;
+
 }
 
 .slideshow img{
+
 width:100%;
+
 display:block;
+
 border-radius:20px;
-box-shadow:0 0 25px rgba(255,255,255,.4);
+
+box-shadow:
+0 0 25px rgba(255,255,255,.35);
+
 transition:.8s;
+
 }
 
 /* =========================
-   Memory Button
+Memories
 ========================= */
 
 #memoryBtn{
-margin:35px auto;
+
+margin-top:30px;
+
 }
 
 #memorySection{
+
 display:none;
+
 margin-top:30px;
-animation:fadeIn 1.2s;
+
+animation:fadeIn 1.5s;
+
+}
+
+#memorySlide{
+
+width:90%;
+max-width:420px;
+
+border-radius:20px;
+
+box-shadow:
+0 0 25px rgba(255,255,255,.35);
+
 }
 
 /* =========================
-   Heart Letter
+Letter
 ========================= */
 
 #heartBtn{
-margin:40px auto 15px;
+
+margin-top:40px;
+
+}
+
+.smallText{
+
+margin-top:10px;
+
+color:#ffd6e0;
+
+font-style:italic;
+
 }
 
 #hiddenLetter{
+
 display:none;
+
 width:90%;
 max-width:760px;
-margin:30px auto;
+
+margin:35px auto;
+
 padding:25px;
+
 background:rgba(255,255,255,.08);
+
 border-radius:20px;
+
 backdrop-filter:blur(8px);
-box-shadow:0 0 20px rgba(255,255,255,.15);
+
+box-shadow:
+0 0 20px rgba(255,255,255,.15);
+
 animation:fadeIn 1.5s;
+
 }
 
 #letter{
+
 text-align:left;
+
 line-height:2;
+
 font-size:18px;
+
 }
 
 /* =========================
-   Video
+Video
 ========================= */
 
 video{
+
 width:90%;
 max-width:420px;
+
 display:block;
-margin:30px auto;
+
+margin:35px auto;
+
 border-radius:20px;
-box-shadow:0 0 25px rgba(255,255,255,.35);
+
+box-shadow:
+0 0 25px rgba(255,255,255,.35);
+
+}
+
+.video-section{
+
+margin-top:60px;
+
 }
 
 /* =========================
-   Gift
+Fade Animation
+========================= */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+/* =========================
+Gift Section
 ========================= */
 
 .gift-section{
-margin:70px auto;
+margin:80px auto;
 }
 
 .gift-box{
 font-size:90px;
-cursor:pointer;
 display:inline-block;
+cursor:pointer;
 transition:.4s;
 }
 
@@ -448,11 +551,11 @@ animation:fadeIn 1.5s;
 }
 
 /* =========================
-   Proposal
+Proposal
 ========================= */
 
 .proposal-section{
-margin:80px auto;
+margin:90px auto;
 padding:20px;
 }
 
@@ -462,11 +565,12 @@ background:#28a745;
 
 #noBtn{
 background:#ff4d6d;
+transition:.3s;
 }
 
 #yesBtn,
 #noBtn{
-margin:10px;
+margin:12px;
 }
 
 #proposalReply{
@@ -485,39 +589,25 @@ display:none;
 }
 
 #rings{
+margin-top:30px;
 font-size:70px;
-margin-top:25px;
 animation:ringLove 2s infinite;
 }
 
-@keyframes ringLove{
-0%{transform:scale(.8);}
-50%{transform:scale(1.2) rotate(8deg);}
-100%{transform:scale(.8);}
-}
-
 #ringMessage{
-margin-top:20px;
+margin-top:18px;
 font-size:22px;
 color:#ffd700;
 }
 
-/* =========================
-   Fade Animation
-========================= */
+@keyframes ringLove{
+0%{transform:scale(.8);}
+50%{transform:scale(1.15) rotate(8deg);}
+100%{transform:scale(.8);}
+}
 
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(25px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-   }
 /* =========================
-   Fireworks
+Fireworks
 ========================= */
 
 .firework{
@@ -527,209 +617,124 @@ animation:boom 1.5s linear forwards;
 }
 
 @keyframes boom{
-
 0%{
 opacity:1;
 transform:scale(.5);
 }
-
 100%{
 opacity:0;
 transform:scale(2.8);
 }
-
 }
 
 /* =========================
-   Ending Screen
+Ending Screen
 ========================= */
 
 #endingScreen{
-
 position:fixed;
-
 top:0;
 left:0;
-
 width:100%;
 height:100%;
-
 background:rgba(0,0,0,.98);
-
+backdrop-filter:blur(15px);
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
-
+flex-direction:column;
+text-align:center;
 opacity:0;
 visibility:hidden;
-
-transition:all 2s ease;
-
+transition:opacity 2s ease;
 z-index:99999;
-
 }
 
 #endingScreen.show{
-
 opacity:1;
 visibility:visible;
-
 }
 
 #endingScreen.hide{
-
 opacity:0;
 visibility:hidden;
-
 }
 
 #endingScreen h1{
-
-font-size:50px;
-
+font-size:48px;
 color:#fff;
-
-text-shadow:
-0 0 20px #ff4d6d,
-0 0 40px #ff4d6d;
-
+text-shadow:0 0 20px #ff4d6d,0 0 40px #ff4d6d;
 animation:heartbeat 1.5s infinite;
-
+margin:0;
 }
 
 #endingScreen p{
-
-margin-top:20px;
-
+margin-top:18px;
 font-size:24px;
-
 color:#ffd700;
-
 animation:glow 2s infinite alternate;
-
 }
 
 /* =========================
-   Final Message
+Final Message
 ========================= */
 
 #finalMessage{
-
 display:none;
-
-padding:100px 20px;
-
+padding:80px 20px;
 animation:fadeIn 2s;
-
 }
 
 #finalMessage h1{
-
 font-size:40px;
-
-color:#ff4d6d;
-
 margin-bottom:20px;
-
 }
 
 #finalMessage h2{
-
 font-size:28px;
-
-color:#ffd700;
-
-margin-bottom:25px;
-
+margin-bottom:20px;
 }
 
 #finalMessage p{
-
 font-size:20px;
-
 line-height:2;
-
 }
 
 /* =========================
-   Footer
+Footer
 ========================= */
 
-.footer{
-
-margin:70px 0;
-
-font-size:20px;
-
+footer{
+margin:70px 0 30px;
+font-size:18px;
 color:#ccc;
-
-animation:glow 2s infinite alternate;
-
 }
 
 /* =========================
-   Animations
+Animations
 ========================= */
 
 @keyframes heartbeat{
-
-0%{
-transform:scale(1);
-}
-
-25%{
-transform:scale(1.08);
-}
-
-50%{
-transform:scale(1);
-}
-
-75%{
-transform:scale(1.08);
-}
-
-100%{
-transform:scale(1);
-}
-
+0%{transform:scale(1);}
+25%{transform:scale(1.08);}
+50%{transform:scale(1);}
+75%{transform:scale(1.08);}
+100%{transform:scale(1);}
 }
 
 @keyframes glow{
-
 from{
-
 opacity:.7;
-
 text-shadow:0 0 10px #fff;
-
 }
-
 to{
-
 opacity:1;
-
-text-shadow:
-0 0 20px #fff,
-0 0 35px #ff4d6d;
-
+text-shadow:0 0 25px #fff,0 0 35px #ff4d6d;
 }
-
 }
 
 /* =========================
-   Replay Button
-========================= */
-
-#replayBtn{
-
-margin-top:30px;
-
-}
-
-/* =========================
-   Mobile Responsive
+Mobile Responsive
 ========================= */
 
 @media (max-width:600px){
@@ -742,16 +747,17 @@ h2{
 font-size:22px;
 }
 
+h3{
+font-size:18px;
+}
+
 p{
 font-size:17px;
 }
 
 button{
-
 font-size:18px;
-
 padding:14px 28px;
-
 }
 
 .cake{
@@ -759,7 +765,7 @@ font-size:70px;
 }
 
 .balloons{
-font-size:36px;
+font-size:35px;
 }
 
 #rings{
@@ -767,11 +773,11 @@ font-size:55px;
 }
 
 #endingScreen h1{
-font-size:32px;
+font-size:30px;
 }
 
 #endingScreen p{
-font-size:20px;
+font-size:18px;
 }
 
 #finalMessage h1{
@@ -781,15 +787,5 @@ font-size:28px;
 #finalMessage h2{
 font-size:22px;
 }
-
-}
-
-/* =========================
-   Smooth Scrolling
-========================= */
-
-html{
-
-scroll-behavior:smooth;
 
 }
