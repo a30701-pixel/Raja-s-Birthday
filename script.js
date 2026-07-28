@@ -510,3 +510,18 @@ btn.blur();
 ========================= */
 
 console.log("❤️ Happy Birthday Raja - Premium Edition ❤️");
+function hideAllSections(){
+
+document.getElementById("memorySection").style.display="none";
+
+document.getElementById("hiddenLetter").style.display="none";
+
+document.querySelector(".video-section").style.display="none";
+
+document.querySelector(".gift-section").style.display="none";
+
+document.querySelector(".proposal-section").style.display="none";
+
+document.getElementById("finalMessage").style.display="none";
+
+}
