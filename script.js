@@ -1,38 +1,41 @@
 /* =========================
-   HAPPY BIRTHDAY RAJA ❤️
-   FINAL MOVIE EDITION
+   Start Website
 ========================= */
-
-// Background Music + Start Website
 
 function startWebsite(){
 
-const music = document.getElementById("bgMusic");
+const music=document.getElementById("bgMusic");
 
 if(music){
-music.volume = 0.5;
+
+music.volume=.5;
+
 music.play().catch(()=>{});
+
 }
 
-const welcome = document.querySelector(".welcome");
-const main = document.getElementById("main");
+const welcome=document.getElementById("welcome");
 
-welcome.style.opacity = "0";
+const main=document.getElementById("main");
+
+welcome.style.opacity="0";
 
 setTimeout(()=>{
 
-welcome.style.display = "none";
+welcome.style.display="none";
 
-main.style.display = "block";
+main.style.display="block";
+
+setTimeout(()=>{
+
+main.style.opacity="1";
+
+},100);
 
 window.scrollTo({
 top:0,
 behavior:"smooth"
 });
-
-setTimeout(()=>{
-main.style.opacity="1";
-},100);
 
 },800);
 
@@ -47,12 +50,12 @@ function createHeart(){
 const heart=document.createElement("div");
 
 heart.className="heart";
+
 heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
 
-heart.style.animationDuration=
-(3+Math.random()*3)+"s";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
 
 document.getElementById("hearts").appendChild(heart);
 
@@ -65,6 +68,32 @@ heart.remove();
 setInterval(createHeart,300);
 
 /* =========================
+   Rose Petals
+========================= */
+
+function createPetal(){
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+
+petal.style.animationDuration=(5+Math.random()*4)+"s";
+
+document.getElementById("rosePetals").appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},9000);
+
+}
+
+setInterval(createPetal,700);
+
+/* =========================
    Stars
 ========================= */
 
@@ -75,7 +104,9 @@ const star=document.createElement("div");
 star.className="star";
 
 star.style.left=Math.random()*100+"vw";
+
 star.style.top=Math.random()*100+"vh";
+
 star.style.animationDelay=Math.random()*2+"s";
 
 document.getElementById("stars").appendChild(star);
@@ -91,9 +122,11 @@ function createFirework(){
 const fw=document.createElement("div");
 
 fw.className="firework";
+
 fw.innerHTML="🎆";
 
 fw.style.left=Math.random()*100+"vw";
+
 fw.style.top=Math.random()*100+"vh";
 
 document.getElementById("fireworks").appendChild(fw);
@@ -103,11 +136,8 @@ fw.remove();
 },1500);
 
 }
-
-setInterval(createFirework,1500);
-
 /* =========================
-   Slideshow
+   Main Slideshow
 ========================= */
 
 const photos=[
@@ -131,42 +161,63 @@ const photos=[
 
 ];
 
-let current=0;
+let currentSlide=0;
 
 setInterval(()=>{
 
-current++;
+currentSlide++;
 
-if(current>=photos.length){
-current=0;
+if(currentSlide>=photos.length){
+
+currentSlide=0;
+
 }
 
-document.getElementById("slide").src=photos[current];
+document.getElementById("slide").src=photos[currentSlide];
 
-const memory=document.getElementById("memorySlide");
+},2500);
 
-if(memory){
-memory.src=photos[current];
-}
-
-},3000);
 /* =========================
-   Our Memories
+   Our Memories Gallery
 ========================= */
+
+let memoryStarted=false;
+
+let memorySlide=0;
 
 function showMemories(){
 
 const section=document.getElementById("memorySection");
 
-if(section){
-
 section.style.display="block";
 
-section.scrollIntoView({
-behavior:"smooth"
-});
+document.getElementById("memoryBtn").style.display="none";
+
+if(!memoryStarted){
+
+memoryStarted=true;
+
+setInterval(()=>{
+
+memorySlide++;
+
+if(memorySlide>=photos.length){
+
+memorySlide=0;
 
 }
+
+document.getElementById("memorySlide").src=photos[memorySlide];
+
+},2200);
+
+}
+
+section.scrollIntoView({
+
+behavior:"smooth"
+
+});
 
 }
 
@@ -176,12 +227,15 @@ behavior:"smooth"
 
 function showLetter(){
 
-document.getElementById("hiddenLetter").style.display="block";
-
 document.getElementById("heartBtn").style.display="none";
 
+document.getElementById("hiddenLetter").style.display="block";
+
 document.getElementById("hiddenLetter").scrollIntoView({
-behavior:"smooth"
+
+behavior:"smooth",
+block:"start"
+
 });
 
 }
@@ -194,14 +248,18 @@ function openGift(){
 
 document.querySelector(".gift-box").innerHTML="💖";
 
-document.getElementById("giftMessage").style.display="block";
+const msg=document.getElementById("giftMessage");
 
-document.getElementById("giftMessage").scrollIntoView({
-behavior:"smooth"
+msg.style.display="block";
+
+msg.scrollIntoView({
+
+behavior:"smooth",
+block:"center"
+
 });
 
 }
-
 /* =========================
    Proposal
 ========================= */
@@ -221,15 +279,20 @@ document.getElementById("rings").style.display="block";
 
 document.getElementById("ringMessage").style.display="block";
 
-const video=document.querySelector("#proposalVideo video");
+const video=document.getElementById("personalVideo");
 
-if(video){
 video.load();
-}
 
 document.getElementById("proposalVideo").scrollIntoView({
-behavior:"smooth"
+
+behavior:"smooth",
+block:"center"
+
 });
+
+video.play().catch(()=>{});
+
+setInterval(createFirework,500);
 
 }
 
@@ -259,37 +322,124 @@ noBtn.style.display="none";
 }
 
 }
+
 /* =========================
-   Cinematic Ending
+   Ending Screen
 ========================= */
 
-const proposalVideo = document.querySelector("#proposalVideo video");
+const personalVideo=document.getElementById("personalVideo");
 
-if(proposalVideo){
+if(personalVideo){
 
-proposalVideo.onended = function(){
+personalVideo.onended=function(){
 
-// Show Ending Screen
-const ending = document.getElementById("endingScreen");
+const ending=document.getElementById("endingScreen");
 
 ending.classList.add("show");
 
-// Fade Out Music
-const music = document.getElementById("bgMusic");
+const music=document.getElementById("bgMusic");
 
 if(music){
 
-let fade = setInterval(function(){
+music.volume=0.15;
 
-if(music.volume > 0.05){
+}
 
-music.volume -= 0.05;
+setTimeout(()=>{
+
+ending.classList.remove("show");
+
+ending.classList.add("hide");
+
+document.getElementById("finalMessage").style.display="block";
+
+document.getElementById("finalMessage").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+},8000);
+
+};
+
+}
+/* =========================
+   Replay Story
+========================= */
+
+function replayStory(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+document.getElementById("finalMessage").style.display="none";
+
+const ending=document.getElementById("endingScreen");
+
+ending.classList.remove("show");
+ending.classList.remove("hide");
+
+const music=document.getElementById("bgMusic");
+
+if(music){
+
+music.currentTime=0;
+
+music.volume=.5;
+
+music.play().catch(()=>{});
+
+}
+
+}
+
+/* =========================
+   Preload Images
+========================= */
+
+photos.forEach(src=>{
+
+const img=new Image();
+
+img.src=src;
+
+});
+
+/* =========================
+   Smooth Image Loading
+========================= */
+
+window.addEventListener("load",()=>{
+
+document.body.style.opacity="1";
+
+});
+
+/* =========================
+   Fade Music Before Ending
+========================= */
+
+function fadeMusic(){
+
+const music=document.getElementById("bgMusic");
+
+if(!music) return;
+
+const fade=setInterval(()=>{
+
+if(music.volume>0.05){
+
+music.volume-=0.05;
 
 }else{
 
-music.volume = 0;
-
-music.pause();
+music.volume=0;
 
 clearInterval(fade);
 
@@ -299,76 +449,64 @@ clearInterval(fade);
 
 }
 
-// Show Final Message after 8 seconds
+/* =========================
+   Extra Rose Petals
+========================= */
 
-setTimeout(function(){
+function finalRoseRain(){
 
-ending.classList.remove("show");
+let count=0;
 
-ending.classList.add("hide");
+const rain=setInterval(()=>{
 
-const finalMessage = document.getElementById("finalMessage");
+createPetal();
 
-if(finalMessage){
+count++;
 
-finalMessage.style.display = "block";
+if(count>=40){
 
-finalMessage.scrollIntoView({
-behavior:"smooth"
-});
+clearInterval(rain);
 
 }
 
-},8000);
-
-};
+},180);
 
 }
 
 /* =========================
-   Replay Button (Optional)
+   Final Ending Effects
 ========================= */
 
-function replayStory(){
+const endVideo=document.getElementById("personalVideo");
 
-location.reload();
+if(endVideo){
 
-}
+endVideo.addEventListener("ended",()=>{
 
-/* =========================
-   Prevent Multiple Clicks
-========================= */
+fadeMusic();
 
-const yesBtn = document.getElementById("yesBtn");
-
-if(yesBtn){
-
-yesBtn.addEventListener("click",function(){
-
-yesBtn.disabled = true;
-
-setTimeout(function(){
-
-yesBtn.disabled = false;
-
-},3000);
+finalRoseRain();
 
 });
 
 }
 
 /* =========================
-   Preload Images
+   Prevent Double Click
 ========================= */
 
-photos.forEach(function(src){
+document.querySelectorAll("button").forEach(btn=>{
 
-const img = new Image();
+btn.addEventListener("click",()=>{
 
-img.src = src;
+btn.blur();
+
+});
 
 });
 
 /* =========================
-   End of Script
+   End Of Script
 ========================= */
+
+console.log("❤️ Happy Birthday Raja - Premium Edition ❤️");
