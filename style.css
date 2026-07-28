@@ -1,6 +1,5 @@
 /* =========================
-   HAPPY BIRTHDAY RAJA ❤️
-   FINAL MOVIE EDITION
+   RESET
 ========================= */
 
 *{
@@ -9,272 +8,319 @@ padding:0;
 box-sizing:border-box;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
+
+font-family:Arial,sans-serif;
 background:#000;
 color:#fff;
-font-family:Arial,sans-serif;
 overflow-x:hidden;
 text-align:center;
+
 }
 
-/* Background Layers */
+/* =========================
+   Background Effects
+========================= */
 
 #stars,
 #hearts,
-#fireworks{
+#fireworks,
+#rosePetals{
+
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
+
 pointer-events:none;
+
 overflow:hidden;
+
 z-index:0;
+
 }
 
-.welcome,
-#main{
-position:relative;
-z-index:2;
-}
-
-/* Moon */
+/* =========================
+   Moon
+========================= */
 
 .moon{
+
 position:fixed;
+
 top:25px;
 right:25px;
+
 width:90px;
 height:90px;
+
 border-radius:50%;
-background:#fffbe6;
+
+background:#fffde7;
+
 box-shadow:
-0 0 25px white,
-0 0 60px white,
-0 0 90px rgba(255,255,255,.7);
+
+0 0 20px white,
+0 0 45px white,
+0 0 70px white;
+
 z-index:1;
+
 }
 
-/* Shooting Star */
+/* =========================
+   Shooting Star
+========================= */
 
 .shooting-star{
+
 position:fixed;
-top:-120px;
-left:-120px;
+
+top:-150px;
+left:-150px;
+
 width:3px;
 height:140px;
-background:linear-gradient(white,transparent);
+
+background:
+linear-gradient(white,transparent);
+
 transform:rotate(45deg);
-animation:shooting 8s linear infinite;
+
+animation:shoot 7s linear infinite;
+
+opacity:.9;
+
 z-index:1;
+
 }
 
-@keyframes shooting{
+@keyframes shoot{
 
 0%{
-top:-120px;
-left:-120px;
-opacity:1;
+
+top:-150px;
+left:-150px;
+
 }
 
 100%{
-top:110%;
-left:110%;
-opacity:0;
-}
+
+top:120%;
+left:120%;
 
 }
 
-/* Twinkling Stars */
+}
+
+/* =========================
+   Stars
+========================= */
 
 .star{
+
 position:absolute;
+
 width:4px;
 height:4px;
+
 background:white;
+
 border-radius:50%;
+
 box-shadow:
+
 0 0 8px white,
-0 0 15px white,
-0 0 30px white;
+0 0 20px white;
 
 animation:twinkle 2s infinite alternate;
+
 }
 
 @keyframes twinkle{
 
-0%{
-opacity:.3;
-transform:scale(.7);
+from{
+
+opacity:.2;
+transform:scale(.8);
+
 }
 
-100%{
+to{
+
 opacity:1;
 transform:scale(1.8);
-}
 
 }
 
-/* Floating Hearts */
+}
+
+/* =========================
+   Hearts
+========================= */
 
 .heart{
+
 position:absolute;
-bottom:-40px;
+
+bottom:-60px;
+
 font-size:24px;
-animation:floatHeart linear forwards;
+
+animation:floatUp linear forwards;
+
 }
 
-@keyframes floatHeart{
+@keyframes floatUp{
 
 0%{
+
 transform:translateY(0);
+
 opacity:1;
+
 }
 
 100%{
+
 transform:translateY(-110vh);
-opacity:0;
-}
-
-}
-
-/* Welcome */
-
-.welcome{
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
-padding:20px;
-
-transition:.8s;
-
-}
-
-.welcome h1{
-
-font-size:42px;
-
-color:#ff4d6d;
-
-text-shadow:
-0 0 15px #ff4d6d,
-0 0 35px #ff4d6d;
-
-margin-bottom:20px;
-
-}
-
-.welcome p{
-
-width:90%;
-
-max-width:650px;
-
-font-size:20px;
-
-line-height:1.8;
-
-margin-bottom:35px;
-
-color:#eee;
-
-}
-
-/* Main */
-
-#main{
-
-display:none;
 
 opacity:0;
 
-padding:30px 15px 80px;
-
-transition:opacity 1.5s;
+}
 
 }
 
-/* Headings */
+/* =========================
+   Rose Petals
+========================= */
 
-h1{
+.petal{
 
-color:#ff4d6d;
+position:absolute;
 
-text-shadow:
-0 0 15px #ff4d6d;
+top:-60px;
 
-}
+font-size:22px;
 
-h2{
-
-color:#ffd700;
-
-text-shadow:
-0 0 12px gold;
-
-margin-top:20px;
+animation:fallRose linear forwards;
 
 }
 
-p{
+@keyframes fallRose{
 
-font-size:18px;
+0%{
 
-line-height:1.8;
+transform:
+translateY(0)
+rotate(0deg);
 
-width:90%;
-
-max-width:750px;
-
-margin:auto;
+opacity:1;
 
 }
 
-/* Buttons */
+100%{
 
-button{
+transform:
+translateY(110vh)
+rotate(360deg);
 
-padding:16px 36px;
-
-border:none;
-
-border-radius:50px;
-
-cursor:pointer;
-
-font-size:20px;
-
-font-weight:bold;
-
-color:white;
-
-background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
-
-box-shadow:0 0 20px rgba(255,77,109,.5);
-
-transition:.35s;
+opacity:0;
 
 }
-
-button:hover{
-
-transform:scale(1.08);
 
 }
 /* =========================
-   Birthday Section
+   Welcome Screen
+========================= */
+
+.welcome{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+padding:20px;
+transition:1s;
+position:relative;
+z-index:2;
+}
+
+.welcome h1{
+font-size:42px;
+color:#ff4d6d;
+text-shadow:0 0 20px #ff4d6d;
+margin-bottom:20px;
+}
+
+.welcome p{
+max-width:700px;
+font-size:20px;
+line-height:1.8;
+margin-bottom:30px;
+color:#eee;
+}
+
+/* =========================
+   Main
+========================= */
+
+#main{
+display:none;
+opacity:0;
+padding:30px 15px 80px;
+transition:opacity 1.5s;
+position:relative;
+z-index:2;
+}
+
+/* =========================
+   Headings
+========================= */
+
+h1{
+color:#ff4d6d;
+text-shadow:0 0 15px #ff4d6d;
+}
+
+h2{
+margin:20px 0;
+color:#ffd700;
+text-shadow:0 0 12px gold;
+}
+
+p{
+width:90%;
+max-width:750px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+button{
+padding:15px 35px;
+font-size:20px;
+font-weight:bold;
+border:none;
+border-radius:40px;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#ff4d6d,#ff7eb3);
+box-shadow:0 0 18px rgba(255,77,109,.5);
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+/* =========================
+   Birthday Box
 ========================= */
 
 .birthday-box{
@@ -287,19 +333,9 @@ animation:cakeJump 2s infinite;
 }
 
 @keyframes cakeJump{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-20px);
-}
-
-100%{
-transform:translateY(0);
-}
-
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
 }
 
 .balloons{
@@ -308,19 +344,9 @@ animation:balloonMove 4s infinite;
 }
 
 @keyframes balloonMove{
-
-0%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-15px);
-}
-
-100%{
-transform:translateY(0);
-}
-
+0%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+100%{transform:translateY(0);}
 }
 
 /* =========================
@@ -335,10 +361,9 @@ margin:35px auto;
 
 .slideshow img{
 width:100%;
-border-radius:20px;
 display:block;
-box-shadow:
-0 0 20px rgba(255,255,255,.3);
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.4);
 transition:.8s;
 }
 
@@ -353,26 +378,22 @@ margin:35px auto;
 #memorySection{
 display:none;
 margin-top:30px;
-animation:fadeIn 1.5s;
+animation:fadeIn 1.2s;
 }
 
 /* =========================
-   Heart Button
+   Heart Letter
 ========================= */
 
 #heartBtn{
-margin:40px auto 20px;
+margin:40px auto 15px;
 }
-
-/* =========================
-   Bengali Letter
-========================= */
 
 #hiddenLetter{
 display:none;
 width:90%;
 max-width:760px;
-margin:40px auto;
+margin:30px auto;
 padding:25px;
 background:rgba(255,255,255,.08);
 border-radius:20px;
@@ -388,24 +409,6 @@ font-size:18px;
 }
 
 /* =========================
-   Fade Animation
-========================= */
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(25px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* =========================
    Video
 ========================= */
 
@@ -415,12 +418,11 @@ max-width:420px;
 display:block;
 margin:30px auto;
 border-radius:20px;
-box-shadow:
-0 0 25px rgba(255,255,255,.35);
+box-shadow:0 0 25px rgba(255,255,255,.35);
 }
 
 /* =========================
-   Gift Section
+   Gift
 ========================= */
 
 .gift-section{
@@ -429,8 +431,8 @@ margin:70px auto;
 
 .gift-box{
 font-size:90px;
-display:inline-block;
 cursor:pointer;
+display:inline-block;
 transition:.4s;
 }
 
@@ -442,7 +444,6 @@ transform:scale(1.15) rotate(10deg);
 display:none;
 margin-top:25px;
 font-size:20px;
-line-height:1.8;
 animation:fadeIn 1.5s;
 }
 
@@ -461,12 +462,11 @@ background:#28a745;
 
 #noBtn{
 background:#ff4d6d;
-transition:.3s;
 }
 
 #yesBtn,
 #noBtn{
-margin:12px;
+margin:10px;
 }
 
 #proposalReply{
@@ -478,54 +478,47 @@ color:#ffd700;
 animation:fadeIn 1s;
 }
 
-/* =========================
-   Rings
-========================= */
+#proposalVideo,
+#rings,
+#ringMessage{
+display:none;
+}
 
 #rings{
-display:none;
-margin-top:25px;
 font-size:70px;
+margin-top:25px;
 animation:ringLove 2s infinite;
 }
 
 @keyframes ringLove{
-
-0%{
-transform:scale(.8);
-}
-
-50%{
-transform:scale(1.2) rotate(8deg);
-}
-
-100%{
-transform:scale(.8);
-}
-
+0%{transform:scale(.8);}
+50%{transform:scale(1.2) rotate(8deg);}
+100%{transform:scale(.8);}
 }
 
 #ringMessage{
-display:none;
 margin-top:20px;
 font-size:22px;
 color:#ffd700;
-animation:fadeIn 1.5s;
 }
+
+/* =========================
+   Fade Animation
+========================= */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+   }
 /* =========================
    Fireworks
 ========================= */
-
-#fireworks{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:999;
-}
 
 .firework{
 position:absolute;
@@ -552,11 +545,15 @@ transform:scale(2.8);
 ========================= */
 
 #endingScreen{
+
 position:fixed;
+
 top:0;
 left:0;
+
 width:100%;
 height:100%;
+
 background:rgba(0,0,0,.98);
 
 display:flex;
@@ -564,36 +561,38 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 
-text-align:center;
-
 opacity:0;
 visibility:hidden;
 
-transition:opacity 2.5s ease;
+transition:all 2s ease;
 
 z-index:99999;
+
 }
 
 #endingScreen.show{
+
 opacity:1;
 visibility:visible;
+
 }
 
 #endingScreen.hide{
+
 opacity:0;
 visibility:hidden;
+
 }
 
 #endingScreen h1{
 
-font-size:52px;
-margin:0;
+font-size:50px;
 
-color:#ffffff;
+color:#fff;
 
 text-shadow:
 0 0 20px #ff4d6d,
-0 0 45px #ff4d6d;
+0 0 40px #ff4d6d;
 
 animation:heartbeat 1.5s infinite;
 
@@ -607,8 +606,6 @@ font-size:24px;
 
 color:#ffd700;
 
-letter-spacing:2px;
-
 animation:glow 2s infinite alternate;
 
 }
@@ -621,7 +618,7 @@ animation:glow 2s infinite alternate;
 
 display:none;
 
-margin:120px auto 80px;
+padding:100px 20px;
 
 animation:fadeIn 2s;
 
@@ -629,11 +626,11 @@ animation:fadeIn 2s;
 
 #finalMessage h1{
 
-font-size:42px;
+font-size:40px;
 
 color:#ff4d6d;
 
-margin-bottom:15px;
+margin-bottom:20px;
 
 }
 
@@ -643,20 +640,36 @@ font-size:28px;
 
 color:#ffd700;
 
-margin-bottom:20px;
+margin-bottom:25px;
 
 }
 
 #finalMessage p{
 
-font-size:22px;
+font-size:20px;
 
-color:white;
+line-height:2;
 
 }
 
 /* =========================
-   Heartbeat
+   Footer
+========================= */
+
+.footer{
+
+margin:70px 0;
+
+font-size:20px;
+
+color:#ccc;
+
+animation:glow 2s infinite alternate;
+
+}
+
+/* =========================
+   Animations
 ========================= */
 
 @keyframes heartbeat{
@@ -683,34 +696,46 @@ transform:scale(1);
 
 }
 
-/* =========================
-   Glow
-========================= */
-
 @keyframes glow{
 
 from{
+
 opacity:.7;
-text-shadow:0 0 10px #ffd700;
+
+text-shadow:0 0 10px #fff;
+
 }
 
 to{
+
 opacity:1;
+
 text-shadow:
-0 0 25px white,
-0 0 40px #ff4d6d;
+0 0 20px #fff,
+0 0 35px #ff4d6d;
+
 }
 
 }
 
 /* =========================
-   Mobile
+   Replay Button
 ========================= */
 
-@media(max-width:600px){
+#replayBtn{
+
+margin-top:30px;
+
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media (max-width:600px){
 
 h1{
-font-size:32px;
+font-size:30px;
 }
 
 h2{
@@ -722,12 +747,15 @@ font-size:17px;
 }
 
 button{
+
 font-size:18px;
+
 padding:14px 28px;
+
 }
 
 .cake{
-font-size:75px;
+font-size:70px;
 }
 
 .balloons{
@@ -739,7 +767,7 @@ font-size:55px;
 }
 
 #endingScreen h1{
-font-size:34px;
+font-size:32px;
 }
 
 #endingScreen p{
@@ -747,11 +775,21 @@ font-size:20px;
 }
 
 #finalMessage h1{
-font-size:30px;
+font-size:28px;
 }
 
 #finalMessage h2{
 font-size:22px;
 }
+
+}
+
+/* =========================
+   Smooth Scrolling
+========================= */
+
+html{
+
+scroll-behavior:smooth;
 
 }
