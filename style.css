@@ -789,3 +789,13 @@ font-size:22px;
 }
 
 }
+/* Hidden Sections */
+
+#memorySection,
+#hiddenLetter,
+.video-section,
+.gift-section,
+.proposal-section,
+#finalMessage{
+display:none;
+}
