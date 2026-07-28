@@ -184,7 +184,7 @@ document.getElementById("slide").src=photos[currentSlide];
 let memoryStarted=false;
 
 let memorySlide=0;
-
+hideAllSections();
 function showMemories(){
 
 const section=document.getElementById("memorySection");
@@ -224,7 +224,7 @@ behavior:"smooth"
 /* =========================
    Bengali Letter
 ========================= */
-
+hideAllSections();
 function showLetter(){
 
 document.getElementById("heartBtn").style.display="none";
@@ -243,7 +243,7 @@ block:"start"
 /* =========================
    Gift
 ========================= */
-
+hideAllSections();
 function openGift(){
 
 document.querySelector(".gift-box").innerHTML="💖";
@@ -265,7 +265,7 @@ block:"center"
 ========================= */
 
 let noCount=0;
-
+hideAllSections();
 function yesAnswer(){
 
 document.getElementById("proposalReply").style.display="block";
