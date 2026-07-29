@@ -115,35 +115,38 @@ const section=document.getElementById("memorySection");
 
 section.style.display="block";
 
+/* উপরের slideshow লুকাবে */
+document.querySelector(".slideshow").style.display="none";
+
+/* পরের button দেখাবে */
+document.getElementById("heartBtn").style.display="inline-block";
+
 section.scrollIntoView({
-behavior:"smooth"
+behavior:"smooth",
+block:"start"
 });
 
-if(memoryStarted) return;
+if(!memoryStarted){
 
 memoryStarted=true;
 
 setInterval(()=>{
 
-memoryIndex++;
+memorySlide++;
 
-if(memoryIndex>=photos.length){
+if(memorySlide>=photos.length){
+memorySlide=0;
+}
 
-memoryIndex=0;
+document.getElementById("memorySlide").src=photos[memorySlide];
+
+},2200);
 
 }
 
-const img=document.getElementById("memorySlide");
-
-if(img){
-
-img.src=photos[memoryIndex];
-
 }
 
-},2500);
 
-}
 /* =========================
    LOVE LETTER
 ========================= */
