@@ -42,6 +42,19 @@ setTimeout(()=>{
 welcome.style.display="none";
 
 main.style.display="block";
+document.getElementById("memorySection").style.display="none";
+   
+document.getElementById("hiddenLetter").style.display="none";
+
+document.getElementById("heartBtn").style.display="none";
+
+document.querySelector(".video-section").style.display="none";
+
+document.querySelector(".gift-section").style.display="none";
+
+document.querySelector(".proposal-section").style.display="none";
+
+document.getElementById("finalMessage").style.display="none";
 
 setTimeout(()=>{
 
@@ -115,10 +128,8 @@ const section=document.getElementById("memorySection");
 
 section.style.display="block";
 
-/* উপরের slideshow লুকাবে */
 document.querySelector(".slideshow").style.display="none";
 
-/* পরের button দেখাবে */
 document.getElementById("heartBtn").style.display="inline-block";
 
 section.scrollIntoView({
@@ -155,17 +166,36 @@ function showLetter(){
 
 document.getElementById("heartBtn").style.display="none";
 
-const letter=document.getElementById("hiddenLetter");
+document.getElementById("hiddenLetter").style.display="block";
 
-letter.style.display="block";
+document.querySelector(".video-section").style.display="block";
 
-letter.scrollIntoView({
+document.getElementById("hiddenLetter").scrollIntoView({
+
 behavior:"smooth",
 block:"start"
+
 });
 
 }
+const mainVideo = document.getElementById("mainVideo");
 
+if(mainVideo){
+
+mainVideo.addEventListener("ended",function(){
+
+document.querySelector(".gift-section").style.display="block";
+
+document.querySelector(".gift-section").scrollIntoView({
+
+behavior:"smooth",
+block:"start"
+
+});
+
+});
+
+}
 /* =========================
    GIFT
 ========================= */
@@ -174,17 +204,17 @@ function openGift(){
 
 document.querySelector(".gift-box").innerHTML="💖";
 
-const gift=document.getElementById("giftMessage");
+document.getElementById("giftMessage").style.display="block";
 
-gift.style.display="block";
+document.querySelector(".proposal-section").style.display="block";
 
-gift.scrollIntoView({
-behavior:"smooth",
-block:"center"
+document.querySelector(".proposal-section").scrollIntoView({
+
+behavior:"smooth"
+
 });
 
 }
-
 /* =========================
    PROPOSAL
 ========================= */
