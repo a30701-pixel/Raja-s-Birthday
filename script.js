@@ -128,8 +128,6 @@ const section=document.getElementById("memorySection");
 
 section.style.display="block";
 
-document.querySelector(".slideshow").style.display="none";
-
 document.getElementById("heartBtn").style.display="inline-block";
 
 section.scrollIntoView({
