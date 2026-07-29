@@ -425,3 +425,8 @@ btn.blur();
 });
 
 console.log("❤️ Happy Birthday Raja - Final Edition ❤️");
+window.onload=function(){
+
+window.scrollTo(0,0);
+
+}
