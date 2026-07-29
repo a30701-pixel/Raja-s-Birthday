@@ -1,584 +1,424 @@
 /* =========================
-HAPPY BIRTHDAY RAJA ❤️
-FINAL SCRIPT
+   HAPPY BIRTHDAY RAJA ❤️
+   FINAL SCRIPT
 ========================= */
-
 
 /* =========================
-START WEBSITE
+   PHOTO LIST
 ========================= */
 
+const photos = [
+"1.jpg.png",
+"2.jpg.png",
+"3.jpg.png",
+"4.jpg.png",
+"5.jpg.png",
+"6.jpg.png",
+"7.jpg.png",
+"8.jpg.png",
+"9.jpg.png",
+"10.jpg.png",
+"11.jpg.png",
+"12.jpg.png",
+"13.jpg.png",
+"14.jpg.png",
+"15.jpg.png",
+"16.jpg.png"
+];
+
+/* =========================
+   START WEBSITE
+========================= */
 
 function startWebsite(){
 
-    let welcome = document.getElementById("welcome");
-    let main = document.getElementById("main");
+const welcome=document.getElementById("welcome");
+const main=document.getElementById("main");
 
+welcome.style.opacity="0";
 
-    welcome.style.display="none";
+setTimeout(()=>{
 
+welcome.style.display="none";
 
-    main.style.display="block";
+main.style.display="block";
 
+setTimeout(()=>{
 
-    setTimeout(()=>{
+main.style.opacity="1";
 
-        main.style.opacity="1";
+},100);
 
-    },100);
+},800);
 
+const music=document.getElementById("bgMusic");
 
+if(music){
 
-    let music=document.getElementById("bgMusic");
+music.volume=0.5;
 
-
-    if(music){
-
-        music.play().catch(()=>{});
-
-    }
-
-
-
-    createStars();
-
-    createHearts();
-
-    createPetals();
+music.play().catch(()=>{});
 
 }
 
-
-
-
-
-/* =========================
-PHOTO SLIDESHOW
-========================= */
-
-
-let photos=[
-
-"jpg.png/1.jpg",
-"jpg.png/2.jpg",
-"jpg.png/3.jpg",
-"jpg.png/4.jpg",
-"jpg.png/5.jpg",
-"jpg.png/6.jpg",
-"jpg.png/7.jpg",
-"jpg.png/8.jpg",
-"jpg.png/9.jpg",
-"jpg.png/10.jpg",
-"jpg.png/11.jpg",
-"jpg.png/12.jpg",
-"jpg.png/13.jpg",
-"jpg.png/14.jpg",
-"jpg.png/15.jpg",
-"jpg.png/16.jpg"
-
-];
-
-
-let photoIndex=0;
-
-
-
-function changePhoto(id){
-
-
-    let image=document.getElementById(id);
-
-
-    if(image){
-
-
-        photoIndex++;
-
-
-        if(photoIndex>=photos.length){
-
-            photoIndex=0;
-
-        }
-
-
-
-        image.style.opacity="0";
-
-
-
-        setTimeout(()=>{
-
-
-            image.src=photos[photoIndex];
-
-
-            image.style.opacity="1";
-
-
-
-        },500);
-
-
-
-    }
-
+createStars();
+startHearts();
+startPetals();
 
 }
 
-
-
-
-setInterval(()=>{
-
-    changePhoto("slide");
-
-},4000);
-
-
-
-
-setInterval(()=>{
-
-    changePhoto("memorySlide");
-
-},3500);
-
-
-
-
-
-
-
-
 /* =========================
-MEMORY BUTTON
+   MAIN SLIDESHOW
 ========================= */
 
+let slideIndex=0;
+
+setInterval(()=>{
+
+slideIndex++;
+
+if(slideIndex>=photos.length){
+
+slideIndex=0;
+
+}
+
+const img=document.getElementById("slide");
+
+if(img){
+
+img.style.opacity="0";
+
+setTimeout(()=>{
+
+img.src=photos[slideIndex];
+img.style.opacity="1";
+
+},300);
+
+}
+
+},3000);
+
+/* =========================
+   MEMORY SLIDESHOW
+========================= */
+
+let memoryIndex=0;
+let memoryStarted=false;
 
 function showMemories(){
 
+document.getElementById("memoryBtn").style.display="none";
 
-    document.getElementById("memorySection").style.display="block";
+const section=document.getElementById("memorySection");
 
+section.style.display="block";
+
+section.scrollIntoView({
+behavior:"smooth"
+});
+
+if(memoryStarted) return;
+
+memoryStarted=true;
+
+setInterval(()=>{
+
+memoryIndex++;
+
+if(memoryIndex>=photos.length){
+
+memoryIndex=0;
 
 }
 
+const img=document.getElementById("memorySlide");
 
+if(img){
 
+img.src=photos[memoryIndex];
 
+}
 
+},2500);
 
-
-
+}
 /* =========================
-LOVE LETTER
+   LOVE LETTER
 ========================= */
-
 
 function showLetter(){
 
+document.getElementById("heartBtn").style.display="none";
 
-    let letter=document.getElementById("hiddenLetter");
+const letter=document.getElementById("hiddenLetter");
 
+letter.style.display="block";
 
-
-    if(letter.style.display==="block"){
-
-
-        letter.style.display="none";
-
-
-    }
-
-    else{
-
-
-        letter.style.display="block";
-
-
-    }
-
+letter.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
 
 }
 
-
-
-
-
-
-
-
 /* =========================
-GIFT
+   GIFT
 ========================= */
-
 
 function openGift(){
 
+document.querySelector(".gift-box").innerHTML="💖";
 
-    document.getElementById("giftMessage").style.display="block";
+const gift=document.getElementById("giftMessage");
 
+gift.style.display="block";
+
+gift.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
 
 }
 
-
-
-
-
-
-
-
 /* =========================
-PROPOSAL
+   PROPOSAL
 ========================= */
 
+let noCount=0;
 
 function yesAnswer(){
 
+document.getElementById("proposalReply").style.display="block";
 
-    let reply=document.getElementById("proposalReply");
+document.getElementById("proposalReply").innerHTML=
+"🥹❤️ Yaaay!! You made me the happiest person in the world! ❤️";
 
+document.getElementById("proposalVideo").style.display="block";
 
-    reply.style.display="block";
+document.getElementById("rings").style.display="block";
 
+document.getElementById("ringMessage").style.display="block";
 
+const video=document.getElementById("personalVideo");
 
-    reply.innerHTML=
+video.load();
 
-    "❤️ You just made my heart the happiest. Forever starts with us. 💍";
+video.play().catch(()=>{});
 
+document.getElementById("proposalVideo").scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
 
-
-    document.getElementById("proposalVideo").style.display="block";
-
-
-    document.getElementById("rings").style.display="block";
-
-
-    document.getElementById("ringMessage").style.display="block";
-
-
-
-    createFireworks();
-
-
+createFireworks();
 
 }
-
-
-
 
 function noAnswer(){
 
+noCount++;
 
-    let reply=document.getElementById("proposalReply");
+const noBtn=document.getElementById("noBtn");
 
+const x=Math.random()*(window.innerWidth-120);
 
-    reply.style.display="block";
+const y=Math.random()*(window.innerHeight-80);
 
+noBtn.style.position="fixed";
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
 
+if(noCount>=5){
 
-    reply.innerHTML=
+document.getElementById("proposalReply").style.display="block";
 
-    "🥺 Think again Raja... My heart already chooses you ❤️";
+document.getElementById("proposalReply").innerHTML=
+"🥹 Okay... I'll wait forever for your Yes ❤️";
 
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-REPLAY
-========================= */
-
-
-function replayStory(){
-
-
-    location.reload();
-
+noBtn.style.display="none";
 
 }
 
-
-
-
-
-
-
-
-/* =========================
-STARS
-========================= */
-
-
-function createStars(){
-
-
-    let box=document.getElementById("stars");
-
-
-
-    for(let i=0;i<80;i++){
-
-
-        let star=document.createElement("div");
-
-
-        star.className="star";
-
-
-
-        star.style.left=Math.random()*100+"%";
-
-
-        star.style.top=Math.random()*100+"%";
-
-
-
-        star.style.animationDelay=Math.random()*3+"s";
-
-
-
-        box.appendChild(star);
-
-
-
-    }
-
-
 }
 
-
-
-
-
-
-
-
 /* =========================
-FLOATING HEARTS
+   FIREWORKS
 ========================= */
-
-
-function createHearts(){
-
-
-    let box=document.getElementById("hearts");
-
-
-
-    setInterval(()=>{
-
-
-        let heart=document.createElement("div");
-
-
-
-        heart.className="heart";
-
-
-        heart.innerHTML="❤️";
-
-
-
-        heart.style.left=Math.random()*100+"%";
-
-
-
-        heart.style.animationDuration=
-
-        (4+Math.random()*4)+"s";
-
-
-
-        box.appendChild(heart);
-
-
-
-        setTimeout(()=>{
-
-
-            heart.remove();
-
-
-        },8000);
-
-
-
-    },600);
-
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-ROSE PETALS
-========================= */
-
-
-function createPetals(){
-
-
-    let box=document.getElementById("rosePetals");
-
-
-
-    setInterval(()=>{
-
-
-        let petal=document.createElement("div");
-
-
-        petal.className="petal";
-
-
-        petal.innerHTML="🌹";
-
-
-
-        petal.style.left=Math.random()*100+"%";
-
-
-
-        petal.style.animationDuration=
-
-        (5+Math.random()*5)+"s";
-
-
-
-        box.appendChild(petal);
-
-
-
-        setTimeout(()=>{
-
-
-            petal.remove();
-
-
-        },10000);
-
-
-
-    },800);
-
-
-
-}
-
-
-
-
-
-
-
-
-/* =========================
-FIREWORKS
-========================= */
-
 
 function createFireworks(){
 
+const box=document.getElementById("fireworks");
 
-    let box=document.getElementById("fireworks");
+for(let i=0;i<25;i++){
 
+const fire=document.createElement("div");
 
+fire.className="firework";
 
-    for(let i=0;i<20;i++){
+fire.innerHTML=["✨","🎆","💖"][Math.floor(Math.random()*3)];
 
+fire.style.left=Math.random()*100+"vw";
+fire.style.top=Math.random()*100+"vh";
 
-        let fire=document.createElement("div");
+box.appendChild(fire);
 
+setTimeout(()=>{
 
-        fire.className="firework";
+fire.remove();
 
-
-        fire.innerHTML="✨";
-
-
-
-        fire.style.left=Math.random()*100+"%";
-
-
-        fire.style.top=Math.random()*100+"%";
-
-
-
-        box.appendChild(fire);
-
-
-
-        setTimeout(()=>{
-
-
-            fire.remove();
-
-
-        },1500);
-
-
-
-    }
-
+},1500);
 
 }
 
-
-
-
-
-
-
-
+    }
 /* =========================
-ENDING SCREEN
+   STARS
 ========================= */
 
+function createStars(){
 
-window.addEventListener("scroll",()=>{
+const box=document.getElementById("stars");
 
+for(let i=0;i<120;i++){
 
-    let final=document.getElementById("finalMessage");
+const star=document.createElement("div");
 
-    let end=document.getElementById("endingScreen");
+star.className="star";
 
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.animationDelay=Math.random()*2+"s";
 
+box.appendChild(star);
 
-    if(window.innerHeight + window.scrollY >= document.body.offsetHeight-200){
+}
 
+}
 
+/* =========================
+   FLOATING HEARTS
+========================= */
 
-        final.style.display="block";
+function startHearts(){
 
+setInterval(()=>{
 
+const heart=document.createElement("div");
 
-        setTimeout(()=>{
+heart.className="heart";
+heart.innerHTML="❤️";
 
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
 
-            end.classList.add("show");
+document.getElementById("hearts").appendChild(heart);
 
+setTimeout(()=>{
 
-        },5000);
+heart.remove();
 
+},8000);
 
+},500);
 
-    }
+}
 
+/* =========================
+   ROSE PETALS
+========================= */
 
+function startPetals(){
+
+setInterval(()=>{
+
+const petal=document.createElement("div");
+
+petal.className="petal";
+petal.innerHTML="🌹";
+
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*4)+"s";
+
+document.getElementById("rosePetals").appendChild(petal);
+
+setTimeout(()=>{
+
+petal.remove();
+
+},9000);
+
+},700);
+
+}
+
+/* =========================
+   ENDING SCREEN
+========================= */
+
+const personalVideo=document.getElementById("personalVideo");
+
+if(personalVideo){
+
+personalVideo.onended=function(){
+
+const ending=document.getElementById("endingScreen");
+
+ending.classList.add("show");
+
+setTimeout(()=>{
+
+ending.classList.remove("show");
+
+document.getElementById("finalMessage").style.display="block";
+
+document.getElementById("finalMessage").scrollIntoView({
+
+behavior:"smooth"
 
 });
+
+},8000);
+
+};
+
+}
+
+/* =========================
+   REPLAY STORY
+========================= */
+
+function replayStory(){
+
+location.reload();
+
+}
+
+/* =========================
+   PRELOAD IMAGES
+========================= */
+
+photos.forEach(src=>{
+
+const img=new Image();
+
+img.src=src;
+
+});
+
+/* =========================
+   BUTTON BLUR
+========================= */
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+btn.blur();
+
+});
+
+});
+
+console.log("❤️ Happy Birthday Raja - Final Edition ❤️");
