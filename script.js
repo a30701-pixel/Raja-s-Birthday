@@ -17,11 +17,11 @@ const photos = [
 "7.jpg.png",
 "8.jpg.png",
 "9.jpg.png",
-"10.jpg.png",
+"file_000000008bc071f5a828a2012647a923.png",
 "11.jpg.png",
 "12.jpg.png",
 "13.jpg.png",
-"14.jpg.png",
+"file_0000000003447207886866ec4a13f04b.png",
 "15.jpg.png",
 "16.jpg.png"
 ];
