@@ -658,8 +658,18 @@ transition:.8s;
 
 }
 
+.coverPhoto{
+width:90%;
+max-width:420px;
+margin:35px auto;
+}
 
-
+.coverPhoto img{
+width:100%;
+display:block;
+border-radius:20px;
+box-shadow:0 0 25px rgba(255,255,255,.35);
+}
 
 
 /* =========================
