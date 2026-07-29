@@ -84,8 +84,8 @@ startPetals();
    MEMORY SLIDESHOW
 ========================= */
 
-let memoryIndex=0;
-let memoryStarted=false;
+let memoryIndex = 0;
+let memoryStarted = false;
 
 function showMemories(){
 
@@ -108,13 +108,13 @@ memoryStarted=true;
 
 setInterval(()=>{
 
-memorySlide++;
+memoryIndex++;
 
-if(memorySlide>=photos.length){
-memorySlide=0;
+if(memoryIndex>=photos.length){
+memoryIndex=0;
 }
 
-document.getElementById("memorySlide").src=photos[memorySlide];
+document.getElementById("memorySlide").src=photos[memoryIndex];
 
 },2200);
 
