@@ -81,39 +81,6 @@ startPetals();
 }
 
 /* =========================
-   MAIN SLIDESHOW
-========================= */
-
-let slideIndex=0;
-
-setInterval(()=>{
-
-slideIndex++;
-
-if(slideIndex>=photos.length){
-
-slideIndex=0;
-
-}
-
-const img=document.getElementById("slide");
-
-if(img){
-
-img.style.opacity="0";
-
-setTimeout(()=>{
-
-img.src=photos[slideIndex];
-img.style.opacity="1";
-
-},300);
-
-}
-
-},3000);
-
-/* =========================
    MEMORY SLIDESHOW
 ========================= */
 
