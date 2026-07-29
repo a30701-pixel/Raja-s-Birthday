@@ -114,13 +114,13 @@ if(memoryIndex>=photos.length){
 memoryIndex=0;
 }
 
-document.getElementById("memorySlide").src=photos[memoryIndex];
+const img=document.getElementById("memorySlide");
+
+if(img){
+img.src=photos[memoryIndex];
+}
 
 },2200);
-
-}
-
-}
 
 
 /* =========================
